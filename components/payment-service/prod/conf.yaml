@@ -6,9 +6,9 @@ metadata:
   labels:
     app: payment-service
     environment: prod
-    version: 3.2.1
+    version: 3.3.0
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: payment-service
@@ -16,7 +16,7 @@ spec:
     metadata:
       labels:
         app: payment-service
-        version: 3.2.1
+        version: 3.3.0
     spec:
       containers:
       - name: payment-service
@@ -27,7 +27,7 @@ spec:
         - name: ENVIRONMENT
           value: "prod"
         - name: VERSION
-          value: "3.2.1"
+          value: "3.3.0"
         resources:
           requests:
             memory: "64Mi"
