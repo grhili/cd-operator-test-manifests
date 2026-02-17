@@ -1,13 +1,52 @@
-version: 3.1.2
-versionOverride: ""
-namespace: data-platform
-gomplateDatasources: "-d data=data-ingest-service-values/data-platform/data-ingest-service/data.yaml"
-heoRoot: tmc/data-platform
-heoRevision: d4e5f6a7b8c9012345678901234567890123defa
-heoRevisionOverride: ""
-enableArgoHookDeleteRedis: true
-enableArgoHookDeleteRedisForce: false
-slackNotifyChannel: data_platform_prod
-onboarded: true
-helmTemplateOptionsOverride: "-f prod/values.yaml"
-helmChartPathOverride: helm/data-platform/data-ingest-service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-ingest-service
+  namespace: data-platform
+  labels:
+    app: data-ingest-service
+    component-group: data-platform
+    environment: prod
+    version: 3.1.2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: data-ingest-service
+  template:
+    metadata:
+      labels:
+        app: data-ingest-service
+        version: 3.1.2
+    spec:
+      containers:
+      - name: data-ingest-service
+        image: busybox:1.36
+        command: ['sh', '-c', 'echo Data Ingest Service v3.1.2 started && sleep 3600']
+        env:
+        - name: ENVIRONMENT
+          value: "prod"
+        - name: VERSION
+          value: "3.1.2"
+        - name: SERVICE_NAME
+          value: "data-ingest-service"
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "50m"
+          limits:
+            memory: "64Mi"
+            cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: data-ingest-service
+  namespace: data-platform
+spec:
+  selector:
+    app: data-ingest-service
+  ports:
+  - port: 8080
+    targetPort: 8080
+  type: ClusterIP

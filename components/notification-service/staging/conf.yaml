@@ -1,12 +1,54 @@
-version: 1.5.2
-versionOverride: ""
-namespace: notification-service
-gomplateDatasources: ""
-heoRoot: services/notification-service
-heoRevision: 345def678abc901234567890123456789012efab
-heoRevisionOverride: ""
-enableArgoHookDeleteRedis: "false"
-enableArgoHookDeleteRedisForce: "false"
-onboarded: "true"
-deploymentSchedule: '* 12-13 * * MON-FRI'
-deploymentWindow: 30
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+  namespace: notification-service
+  labels:
+    app: notification-service
+    environment: staging
+    version: 1.5.2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: notification-service
+  template:
+    metadata:
+      labels:
+        app: notification-service
+        version: 1.5.2
+    spec:
+      containers:
+      - name: notification-service
+        image: busybox:1.36
+        command: ['sh', '-c', 'echo Notification Service v1.5.2 started && sleep 3600']
+        env:
+        - name: ENVIRONMENT
+          value: "staging"
+        - name: VERSION
+          value: "1.5.2"
+        resources:
+          requests:
+            memory: "16Mi"
+            cpu: "25m"
+          limits:
+            memory: "32Mi"
+            cpu: "50m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service
+  namespace: notification-service
+spec:
+  selector:
+    app: notification-service
+  ports:
+  - port: 8080
+    targetPort: 8080
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: notification-service

@@ -1,12 +1,55 @@
-version: 1.0.0
-versionOverride: ""
-namespace: user-service
-gomplateDatasources: ""
-heoRoot: services/user-service
-heoRevision: abc123def456789012345678901234567890abcd
-heoRevisionOverride: ""
-enableArgoHookDeleteRedis: "true"
-enableArgoHookDeleteRedisForce: "false"
-onboarded: "true"
-deploymentSchedule: '* 12-13 * * MON-FRI'
-deploymentWindow: 30
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+  namespace: user-service
+  labels:
+    app: user-service
+    environment: staging
+    version: 1.0.0
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+        version: 1.0.0
+    spec:
+      containers:
+      - name: user-service
+        image: nginx:1.25-alpine
+        ports:
+        - containerPort: 80
+        env:
+        - name: ENVIRONMENT
+          value: "staging"
+        - name: VERSION
+          value: "1.0.0"
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "50m"
+          limits:
+            memory: "64Mi"
+            cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+  namespace: user-service
+spec:
+  selector:
+    app: user-service
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: user-service

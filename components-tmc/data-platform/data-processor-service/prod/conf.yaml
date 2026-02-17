@@ -1,13 +1,53 @@
-version: 2.5.0
-versionOverride: ""
-namespace: data-platform
-gomplateDatasources: "-d data=data-processor-service-values/data-platform/data-processor-service/data.yaml"
-heoRoot: tmc/data-platform
-heoRevision: e5f6a7b8c9d0123456789012345678901234efab
-heoRevisionOverride: ""
-enableArgoHookDeleteRedis: true
-enableArgoHookDeleteRedisForce: false
-slackNotifyChannel: data_platform_prod
-onboarded: true
-helmTemplateOptionsOverride: "-f prod/values.yaml"
-helmChartPathOverride: helm/data-platform/data-processor-service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-processor-service
+  namespace: data-platform
+  labels:
+    app: data-processor-service
+    component-group: data-platform
+    environment: prod
+    version: 2.5.0
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: data-processor-service
+  template:
+    metadata:
+      labels:
+        app: data-processor-service
+        version: 2.5.0
+    spec:
+      containers:
+      - name: data-processor-service
+        image: nginx:1.27-alpine
+        ports:
+        - containerPort: 80
+        env:
+        - name: ENVIRONMENT
+          value: "prod"
+        - name: VERSION
+          value: "2.5.0"
+        - name: SERVICE_NAME
+          value: "data-processor-service"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: data-processor-service
+  namespace: data-platform
+spec:
+  selector:
+    app: data-processor-service
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP

@@ -1,13 +1,53 @@
-version: 2.0.0
-versionOverride: ""
-namespace: api-gateway
-gomplateDatasources: "-d data=gateway-api-service-values/api-gateway/gateway-api-service/data.yaml"
-heoRoot: tmc/api-gateway
-heoRevision: a1b2c3d4e5f6789012345678901234567890abcd
-heoRevisionOverride: ""
-enableArgoHookDeleteRedis: false
-enableArgoHookDeleteRedisForce: false
-slackNotifyChannel: api_gateway_prod
-onboarded: true
-helmTemplateOptionsOverride: "-f prod/values.yaml"
-helmChartPathOverride: helm/api-gateway/gateway-api-service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-api-service
+  namespace: api-gateway
+  labels:
+    app: gateway-api-service
+    component-group: api-gateway
+    environment: prod
+    version: 2.0.0
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gateway-api-service
+  template:
+    metadata:
+      labels:
+        app: gateway-api-service
+        version: 2.0.0
+    spec:
+      containers:
+      - name: gateway-api-service
+        image: nginx:1.25-alpine
+        ports:
+        - containerPort: 80
+        env:
+        - name: ENVIRONMENT
+          value: "prod"
+        - name: VERSION
+          value: "2.0.0"
+        - name: SERVICE_NAME
+          value: "gateway-api-service"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gateway-api-service
+  namespace: api-gateway
+spec:
+  selector:
+    app: gateway-api-service
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
