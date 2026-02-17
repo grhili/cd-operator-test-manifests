@@ -6,9 +6,9 @@ metadata:
   labels:
     app: notification-service
     environment: dev
-    version: 1.5.2
+    version: 1.6.0
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: notification-service
@@ -16,24 +16,24 @@ spec:
     metadata:
       labels:
         app: notification-service
-        version: 1.5.2
+        version: 1.6.0
     spec:
       containers:
       - name: notification-service
         image: busybox:1.36
-        command: ['sh', '-c', 'echo Notification Service v1.5.2 started && sleep 3600']
+        command: ['sh', '-c', 'echo Notification Service v1.6.0 started && sleep 3600']
         env:
         - name: ENVIRONMENT
           value: "dev"
         - name: VERSION
-          value: "1.5.2"
+          value: "1.6.0"
         resources:
           requests:
-            memory: "16Mi"
-            cpu: "25m"
+            memory: "24Mi"
+            cpu: "35m"
           limits:
-            memory: "32Mi"
-            cpu: "50m"
+            memory: "48Mi"
+            cpu: "75m"
 ---
 apiVersion: v1
 kind: Service
