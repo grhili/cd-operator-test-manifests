@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: customer-portal
-slackChannel: '#cd-operator-alerts'
-promotion:
-  - template: default

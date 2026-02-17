@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: recommendation-engine
-slackChannel: '#tmc-cd-alerts'
-promotion:
-  - template: tmc-default

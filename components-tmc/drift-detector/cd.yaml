@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: drift-detector
-slackChannel: '#tmc-cd-alerts'
-promotion:
-  - template: tmc-default

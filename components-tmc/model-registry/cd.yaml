@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: model-registry
-slackChannel: '#tmc-cd-alerts'
-promotion:
-  - template: tmc-default

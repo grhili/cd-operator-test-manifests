@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: time-series-forecast
-slackChannel: '#tmc-cd-alerts'
-promotion:
-  - template: tmc-default

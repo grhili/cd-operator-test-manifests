@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: api-gateway
-slackChannel: '#cd-operator-alerts'
-promotion:
-  - template: default

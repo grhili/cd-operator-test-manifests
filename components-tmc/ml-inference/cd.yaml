@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: ml-inference
-slackChannel: '#tmc-cd-alerts'
-promotion:
-  - template: tmc-default

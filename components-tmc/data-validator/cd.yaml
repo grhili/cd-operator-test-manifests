@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: data-validator
-slackChannel: '#tmc-cd-alerts'
-promotion:
-  - template: tmc-default

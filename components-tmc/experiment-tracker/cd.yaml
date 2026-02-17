@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: experiment-tracker
-slackChannel: '#tmc-cd-alerts'
-promotion:
-  - template: tmc-default

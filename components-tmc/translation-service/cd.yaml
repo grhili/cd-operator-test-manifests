@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: translation-service
-slackChannel: '#tmc-cd-alerts'
-promotion:
-  - template: tmc-default

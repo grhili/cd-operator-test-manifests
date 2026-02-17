@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: data-processor
-slackChannel: '#tmc-cd-alerts'
-promotion:
-  - template: tmc-default

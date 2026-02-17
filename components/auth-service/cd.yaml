@@ -1,5 +1,0 @@
-gitOwner: grhili
-gitRepoName: auth-service
-slackChannel: '#cd-operator-alerts'
-promotion:
-  - template: default
