@@ -1,0 +1,5 @@
+gitOwner: grhili
+gitRepoName: nlp-service
+slackChannel: '#tmc-cd-alerts'
+promotion:
+  - template: tmc-default

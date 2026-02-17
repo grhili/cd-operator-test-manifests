@@ -1,0 +1,13 @@
+version: 1.0.0
+namespace: dev
+replicas: 1
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+image:
+  repository: nginx
+  tag: 1.25-alpine

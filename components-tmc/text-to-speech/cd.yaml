@@ -1,0 +1,5 @@
+gitOwner: grhili
+gitRepoName: text-to-speech
+slackChannel: '#tmc-cd-alerts'
+promotion:
+  - template: tmc-default

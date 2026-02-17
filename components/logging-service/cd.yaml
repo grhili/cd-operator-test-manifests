@@ -1,0 +1,5 @@
+gitOwner: grhili
+gitRepoName: logging-service
+slackChannel: '#cd-operator-alerts'
+promotion:
+  - template: default

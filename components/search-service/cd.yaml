@@ -1,0 +1,5 @@
+gitOwner: grhili
+gitRepoName: search-service
+slackChannel: '#cd-operator-alerts'
+promotion:
+  - template: default

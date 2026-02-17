@@ -1,0 +1,14 @@
+version: 1.0.0
+namespace: tmc
+cluster: cluster-us-east-1
+replicas: 2
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+image:
+  repository: nginx
+  tag: 1.25-alpine

@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: tmc
+resources:
+  - deployment.yaml
+  - service.yaml
+commonLabels:
+  app: time-series-forecast
+  cluster: cluster-us-east-1
+  tmc: "true"

@@ -1,0 +1,5 @@
+gitOwner: grhili
+gitRepoName: anomaly-detection
+slackChannel: '#tmc-cd-alerts'
+promotion:
+  - template: tmc-default

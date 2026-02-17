@@ -1,0 +1,5 @@
+gitOwner: grhili
+gitRepoName: payment-gateway
+slackChannel: '#cd-operator-alerts'
+promotion:
+  - template: default

@@ -1,0 +1,5 @@
+gitOwner: grhili
+gitRepoName: feature-store
+slackChannel: '#tmc-cd-alerts'
+promotion:
+  - template: tmc-default
