@@ -6,7 +6,7 @@ metadata:
   labels:
     app: analytics-service
     environment: prod
-    version: 4.0.1
+    version: 4.1.0
 spec:
   replicas: 3
   selector:
@@ -16,7 +16,7 @@ spec:
     metadata:
       labels:
         app: analytics-service
-        version: 4.0.1
+        version: 4.1.0
     spec:
       containers:
       - name: analytics-service
@@ -27,14 +27,14 @@ spec:
         - name: ENVIRONMENT
           value: "prod"
         - name: VERSION
-          value: "4.0.1"
+          value: "4.1.0"
         resources:
           requests:
-            memory: "64Mi"
-            cpu: "100m"
-          limits:
             memory: "128Mi"
             cpu: "200m"
+          limits:
+            memory: "256Mi"
+            cpu: "400m"
 ---
 apiVersion: v1
 kind: Service
