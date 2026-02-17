@@ -6,9 +6,9 @@ metadata:
   labels:
     app: user-service
     environment: dev
-    version: 1.0.0
+    version: 1.1.0
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: user-service
@@ -16,18 +16,18 @@ spec:
     metadata:
       labels:
         app: user-service
-        version: 1.0.0
+        version: 1.1.0
     spec:
       containers:
       - name: user-service
-        image: nginx:1.25-alpine
+        image: nginx:1.26-alpine
         ports:
         - containerPort: 80
         env:
         - name: ENVIRONMENT
           value: "dev"
         - name: VERSION
-          value: "1.0.0"
+          value: "1.1.0"
         resources:
           requests:
             memory: "32Mi"
