@@ -6,7 +6,7 @@ metadata:
   labels:
     app: auth-service
     environment: staging
-    version: 2.1.5
+    version: 2.2.0
 spec:
   replicas: 2
   selector:
@@ -16,25 +16,25 @@ spec:
     metadata:
       labels:
         app: auth-service
-        version: 2.1.5
+        version: 2.2.0
     spec:
       containers:
       - name: auth-service
-        image: redis:7.2-alpine
+        image: redis:7.4-alpine
         ports:
         - containerPort: 6379
         env:
         - name: ENVIRONMENT
           value: "staging"
         - name: VERSION
-          value: "2.1.5"
+          value: "2.2.0"
         resources:
           requests:
-            memory: "32Mi"
-            cpu: "50m"
+            memory: "48Mi"
+            cpu: "75m"
           limits:
-            memory: "64Mi"
-            cpu: "100m"
+            memory: "96Mi"
+            cpu: "150m"
 ---
 apiVersion: v1
 kind: Service
