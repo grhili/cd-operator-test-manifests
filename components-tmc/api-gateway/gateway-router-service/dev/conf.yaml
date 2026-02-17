@@ -1,0 +1,13 @@
+version: 1.8.5
+versionOverride: ""
+namespace: api-gateway
+gomplateDatasources: "-d data=gateway-router-service-values/api-gateway/gateway-router-service/data.yaml"
+heoRoot: tmc/api-gateway
+heoRevision: c3d4e5f6a7b8901234567890123456789012cdef
+heoRevisionOverride: ""
+enableArgoHookDeleteRedis: false
+enableArgoHookDeleteRedisForce: false
+slackNotifyChannel: api_gateway_dev
+onboarded: true
+helmTemplateOptionsOverride: "-f dev/values.yaml"
+helmChartPathOverride: helm/api-gateway/gateway-router-service

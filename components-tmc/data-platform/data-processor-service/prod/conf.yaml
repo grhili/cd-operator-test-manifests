@@ -1,0 +1,13 @@
+version: 2.5.0
+versionOverride: ""
+namespace: data-platform
+gomplateDatasources: "-d data=data-processor-service-values/data-platform/data-processor-service/data.yaml"
+heoRoot: tmc/data-platform
+heoRevision: e5f6a7b8c9d0123456789012345678901234efab
+heoRevisionOverride: ""
+enableArgoHookDeleteRedis: true
+enableArgoHookDeleteRedisForce: false
+slackNotifyChannel: data_platform_prod
+onboarded: true
+helmTemplateOptionsOverride: "-f prod/values.yaml"
+helmChartPathOverride: helm/data-platform/data-processor-service

@@ -1,0 +1,12 @@
+version: 2.1.5
+versionOverride: ""
+namespace: auth-service
+gomplateDatasources: ""
+heoRoot: services/auth-service
+heoRevision: def456abc123789012345678901234567890bcde
+heoRevisionOverride: ""
+enableArgoHookDeleteRedis: "true"
+enableArgoHookDeleteRedisForce: "false"
+onboarded: "true"
+deploymentSchedule: '* 12-13 * * MON-FRI'
+deploymentWindow: 30

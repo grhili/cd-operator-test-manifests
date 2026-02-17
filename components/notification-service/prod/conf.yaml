@@ -1,0 +1,12 @@
+version: 1.5.2
+versionOverride: ""
+namespace: notification-service
+gomplateDatasources: ""
+heoRoot: services/notification-service
+heoRevision: 345def678abc901234567890123456789012efab
+heoRevisionOverride: ""
+enableArgoHookDeleteRedis: "false"
+enableArgoHookDeleteRedisForce: "false"
+onboarded: "true"
+deploymentSchedule: '* 15-16 * * MON-FRI'
+deploymentWindow: 60

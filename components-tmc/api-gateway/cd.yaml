@@ -1,0 +1,9 @@
+promotion:
+  - environment: dev
+    manualPromotion: "false"
+    promotion:
+    - environment: staging
+      manualPromotion: "true"
+      promotion:
+        - environment: prod
+          manualPromotion: "true"

@@ -1,0 +1,12 @@
+version: 3.2.1
+versionOverride: ""
+namespace: payment-service
+gomplateDatasources: ""
+heoRoot: services/payment-service
+heoRevision: 789abc012def345678901234567890123456cdef
+heoRevisionOverride: ""
+enableArgoHookDeleteRedis: "true"
+enableArgoHookDeleteRedisForce: "false"
+onboarded: "true"
+deploymentSchedule: '* 15-16 * * MON-FRI'
+deploymentWindow: 60

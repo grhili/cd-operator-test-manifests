@@ -1,0 +1,5 @@
+gitOwner: test-org
+gitRepoName: auth-service
+slackChannel: '#auth-service-alerts'
+promotion:
+  - template: standard-promotion

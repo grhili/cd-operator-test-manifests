@@ -1,0 +1,5 @@
+gitOwner: test-org
+gitRepoName: payment-service
+slackChannel: '#payment-service-alerts'
+promotion:
+  - template: critical-promotion

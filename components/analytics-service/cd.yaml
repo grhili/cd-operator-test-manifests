@@ -1,0 +1,5 @@
+gitOwner: test-org
+gitRepoName: analytics-service
+slackChannel: '#analytics-service-alerts'
+promotion:
+  - template: standard-promotion

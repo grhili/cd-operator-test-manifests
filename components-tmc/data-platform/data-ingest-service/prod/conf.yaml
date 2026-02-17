@@ -1,0 +1,13 @@
+version: 3.1.2
+versionOverride: ""
+namespace: data-platform
+gomplateDatasources: "-d data=data-ingest-service-values/data-platform/data-ingest-service/data.yaml"
+heoRoot: tmc/data-platform
+heoRevision: d4e5f6a7b8c9012345678901234567890123defa
+heoRevisionOverride: ""
+enableArgoHookDeleteRedis: true
+enableArgoHookDeleteRedisForce: false
+slackNotifyChannel: data_platform_prod
+onboarded: true
+helmTemplateOptionsOverride: "-f prod/values.yaml"
+helmChartPathOverride: helm/data-platform/data-ingest-service

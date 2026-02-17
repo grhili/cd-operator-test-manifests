@@ -1,0 +1,12 @@
+version: 1.0.0
+versionOverride: ""
+namespace: user-service
+gomplateDatasources: ""
+heoRoot: services/user-service
+heoRevision: abc123def456789012345678901234567890abcd
+heoRevisionOverride: ""
+enableArgoHookDeleteRedis: "true"
+enableArgoHookDeleteRedisForce: "false"
+onboarded: "true"
+deploymentSchedule: '* 9-10 * * MON-FRI'
+deploymentWindow: 30

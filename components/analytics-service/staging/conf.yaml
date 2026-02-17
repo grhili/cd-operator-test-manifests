@@ -1,0 +1,12 @@
+version: 4.0.1
+versionOverride: ""
+namespace: analytics-service
+gomplateDatasources: ""
+heoRoot: services/analytics-service
+heoRevision: 901234abc567def890123456789012345678fabc
+heoRevisionOverride: ""
+enableArgoHookDeleteRedis: "true"
+enableArgoHookDeleteRedisForce: "false"
+onboarded: "true"
+deploymentSchedule: '* 12-13 * * MON-FRI'
+deploymentWindow: 30
