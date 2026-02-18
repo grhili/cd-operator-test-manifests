@@ -7,9 +7,9 @@ metadata:
     app: gateway-router-service
     component-group: api-gateway
     environment: dev
-    version: 1.8.5
+    version: 1.9.0
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: gateway-router-service
@@ -17,18 +17,18 @@ spec:
     metadata:
       labels:
         app: gateway-router-service
-        version: 1.8.5
+        version: 1.9.0
     spec:
       containers:
       - name: gateway-router-service
-        image: httpd:2.4-alpine
+        image: httpd:2.4.62-alpine
         ports:
         - containerPort: 80
         env:
         - name: ENVIRONMENT
           value: "dev"
         - name: VERSION
-          value: "1.8.5"
+          value: "1.9.0"
         - name: SERVICE_NAME
           value: "gateway-router-service"
         resources:
