@@ -7,9 +7,9 @@ metadata:
     app: data-ingest-service
     component-group: data-platform
     environment: prod
-    version: 3.1.2
+    version: 3.2.0
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: data-ingest-service
@@ -17,26 +17,26 @@ spec:
     metadata:
       labels:
         app: data-ingest-service
-        version: 3.1.2
+        version: 3.2.0
     spec:
       containers:
       - name: data-ingest-service
-        image: busybox:1.36
-        command: ['sh', '-c', 'echo Data Ingest Service v3.1.2 started && sleep 3600']
+        image: busybox:1.37
+        command: ['sh', '-c', 'echo Data Ingest Service v3.2.0 started && sleep 3600']
         env:
         - name: ENVIRONMENT
           value: "prod"
         - name: VERSION
-          value: "3.1.2"
+          value: "3.2.0"
         - name: SERVICE_NAME
           value: "data-ingest-service"
         resources:
           requests:
-            memory: "32Mi"
-            cpu: "50m"
+            memory: "48Mi"
+            cpu: "75m"
           limits:
-            memory: "64Mi"
-            cpu: "100m"
+            memory: "96Mi"
+            cpu: "150m"
 ---
 apiVersion: v1
 kind: Service
