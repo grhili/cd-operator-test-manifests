@@ -6,7 +6,7 @@ metadata:
   labels:
     app: analytics-service
     environment: prod
-    version: 4.0.1
+    version: 4.1.0
 spec:
   replicas: 3
   selector:
@@ -16,7 +16,7 @@ spec:
     metadata:
       labels:
         app: analytics-service
-        version: 4.0.1
+        version: 4.1.0
     spec:
       containers:
       - name: analytics-service
