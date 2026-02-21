@@ -6,7 +6,7 @@ metadata:
   labels:
     app: auth-service
     environment: prod
-    version: 2.1.5
+    version: 2.2.0
 spec:
   replicas: 3
   selector:
@@ -16,7 +16,7 @@ spec:
     metadata:
       labels:
         app: auth-service
-        version: 2.1.5
+        version: 2.2.0
     spec:
       containers:
       - name: auth-service
