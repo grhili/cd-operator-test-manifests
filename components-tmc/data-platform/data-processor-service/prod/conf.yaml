@@ -7,9 +7,9 @@ metadata:
     app: data-processor-service
     component-group: data-platform
     environment: prod
-    version: 2.5.0
+    version: 2.7.0
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: data-processor-service
@@ -17,7 +17,7 @@ spec:
     metadata:
       labels:
         app: data-processor-service
-        version: 2.5.0
+        version: 2.7.0
     spec:
       containers:
       - name: data-processor-service
