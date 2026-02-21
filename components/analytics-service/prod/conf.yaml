@@ -6,7 +6,7 @@ metadata:
   labels:
     app: analytics-service
     environment: prod
-    version: 4.0.1
+    version: 4.2.0
 spec:
   replicas: 3
   selector:
@@ -16,18 +16,18 @@ spec:
     metadata:
       labels:
         app: analytics-service
-        version: 4.0.1
+        version: 4.2.0
     spec:
       containers:
       - name: analytics-service
-        image: nginx:1.26-alpine
+        image: nginx:1.27-alpine
         ports:
         - containerPort: 80
         env:
         - name: ENVIRONMENT
           value: "prod"
         - name: VERSION
-          value: "4.0.1"
+          value: "4.2.0"
         resources:
           requests:
             memory: "64Mi"
