@@ -1,0 +1,18 @@
+replicaCount: 1
+
+image:
+  repository: kennethreitz/httpbin
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  limits:
+    cpu: 40m
+    memory: 48Mi
+  requests:
+    cpu: 10m
+    memory: 24Mi

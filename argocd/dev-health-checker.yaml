@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dev-health-checker
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/grhili/cd-operator-test-manifests.git
+    targetRevision: HEAD
+    path: dev/health-checker
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

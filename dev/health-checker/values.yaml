@@ -1,0 +1,18 @@
+replicaCount: 1
+
+image:
+  repository: alpine
+  tag: "3.19"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+
+resources:
+  limits:
+    cpu: 20m
+    memory: 32Mi
+  requests:
+    cpu: 5m
+    memory: 16Mi

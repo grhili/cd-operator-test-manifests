@@ -1,0 +1,18 @@
+replicaCount: 1
+
+image:
+  repository: prom/node-exporter
+  tag: "v1.7.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 9100
+
+resources:
+  limits:
+    cpu: 30m
+    memory: 32Mi
+  requests:
+    cpu: 5m
+    memory: 16Mi
