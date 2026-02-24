@@ -18,9 +18,11 @@ kube-prometheus-stack:
             resources:
               requests:
                 storage: 10Gi
-      # Enable service monitors for pod log collection
+      # Enable service monitors for pod log collection across all namespaces
       serviceMonitorSelectorNilUsesHelmValues: false
       podMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorNamespaceSelector: {}
+      podMonitorNamespaceSelector: {}
 
   # Disable built-in Grafana
   grafana:
