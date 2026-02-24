@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: nginxdemos/hello
-  tag: "latest"
+  tag: "0.4"
   pullPolicy: IfNotPresent
 
 service:
