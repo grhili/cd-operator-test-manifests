@@ -7,4 +7,4 @@ resources:
   - namespace.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   # Dev cluster applications
-  - ../dev-sample-app.yaml
+  - ../dev-services.yaml

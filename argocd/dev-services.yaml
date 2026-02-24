@@ -1,20 +1,43 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
   name: dev-services
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/grhili/cd-operator-test-manifests.git
-    targetRevision: HEAD
-    path: dev
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: dev
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
+  generators:
+  - list:
+      elements:
+      - name: sample-app
+      - name: web-frontend
+      - name: api-backend
+      - name: cache-service
+      - name: message-queue
+      - name: config-service
+      - name: metrics-collector
+      - name: health-checker
+      - name: database-mock
+      - name: worker-service
+      - name: log-aggregator
+      - name: prometheus
+  template:
+    metadata:
+      name: 'dev-{{name}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/grhili/cd-operator-test-manifests.git
+        targetRevision: HEAD
+        path: 'dev/{{name}}'
+        helm:
+          valueFiles:
+          - values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: dev
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+        - ServerSideApply=true
