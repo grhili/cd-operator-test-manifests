@@ -2,5 +2,5 @@ apiVersion: v2
 name: web-frontend
 description: Lightweight web frontend for testing
 type: application
-version: 0.1.0
+version: 0.2.0
 appVersion: "1.0"
