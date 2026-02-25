@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: fluent/fluent-bit
-  tag: "2.2-distroless"
+  tag: "4.2"
   pullPolicy: IfNotPresent
 
 service:
