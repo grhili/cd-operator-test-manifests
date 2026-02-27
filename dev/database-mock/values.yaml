@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: postgres
-  tag: "17.2-alpine"
+  tag: "18-alpine"
   pullPolicy: IfNotPresent
 
 service:
