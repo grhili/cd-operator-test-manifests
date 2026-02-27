@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: hashicorp/http-echo
-  tag: "1.6"
+  tag: "1.1.0"
   pullPolicy: IfNotPresent
 
 service:
