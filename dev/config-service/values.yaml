@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: kennethreitz/httpbin
-  tag: "latest"
+  tag: "0.10.12"
   pullPolicy: IfNotPresent
 
 service:
