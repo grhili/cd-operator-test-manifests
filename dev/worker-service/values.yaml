@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: alpine
-  tag: "3.23"
+  tag: "3.25"
   pullPolicy: IfNotPresent
 
 resources:
