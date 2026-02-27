@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: redis
-  tag: "8.7-alpine"
+  tag: "8.8-alpine"
   pullPolicy: IfNotPresent
 
 service:
