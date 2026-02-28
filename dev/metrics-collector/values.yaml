@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: prom/node-exporter
-  tag: "v1.10.2"
+  tag: "v1.9.1"
   pullPolicy: IfNotPresent
 
 service:
